@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test task</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body>
+  <div style="display:none">
+    <include src="public/img/sprite.svg"></include>
+  </div>
+
+  <header class="header">
+    <div class="header__wrapper">
+      <div class="timer" id="timer">
+        Время:
+        <span class="timer__score timer__score--min" id="min">00</span>
+        <span class="timer__score timer__score--sec" id="sec">00</span>
+      </div>
+      <div class="header__container">
+        <button class="header__menu">
+          <span class="visually-hidden">Menu</span>
+          <svg class="header__svg" width="30" height="24" role="img">
+            <use xlink:href="#sign_burger"></use>
+          </svg>
+        </button>
+        <a class="header__logo-link" href="#">
+          <svg class="header__logo" width="96" height="21" role="img">
+            <use xlink:href="#sign_logo"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="header__container">
+        <a class="header__cart" href="#" id="cart">
+          <svg class="header__svg header__svg--cart" width="17" height="17" role="img">
+            <use xlink:href="#sign_cart"></use>
+          </svg>
+          <span>99.0 руб.</span>
+        </a>
+        <a class="header__options" href="#">
+          <svg class="header__svg" width="4" height="20" role="img">
+            <use xlink:href="#sign_options"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" id="main">
+    <div class="main__wrapper">
+      <div class="checkout hidden" id="checkout">
+        <div class="checkout__container">
+          <h2 class="checkout__title">
+            Shopping Cart
+          </h2>
+          <a href="#" class="checkout__continue">
+            <svg class="checkout__svg" width="6" height="11" role="img">
+              <use xlink:href="#sign_arrow"></use>
+            </svg>
+            <span>
+              Continue Shopping
+            </span>
+          </a>
+          <ul class="checkout__shopping-list" id="shopping-list">
+            <!-- <li id="item-0">
+              <img class="checkout__image" src="img/item-1.png" width="134" height="75" alt="Item">
+              <div class="checkout__wrapper">
+                <p class="checkout__text">
+                  Alchemy of crystals sticker pack
+                </p>
+                <div class="checkout__small-wrapper">
+                  <span class="checkout__item-price">
+                    99.0 руб.
+                  </span>
+                  <button type="button" class="checkout__delete-item" id="delete-item-0">
+                    <p>
+                      Delete
+                    </p>
+                  </button>
+                </div>
+              </div>
+            </li> -->
+          </ul>
+          <div class="checkout__total-wrapper">
+            <span>
+              Total:
+            </span>
+            <span id="checkout-total">
+              99.0 руб.
+            </span>
+          </div>
+          <a href="#" class="checkout__link">
+            Check out
+          </a>
+          <button type="button" class="checkout__delete-items" id="delete-all">
+            <p>
+              Delete All
+            </p>
+          </button>
+
+        </div>
+      </div>
+      <section class="items">
+        <h1 class="items__title">
+          Movavi Video Suite for Windows
+        </h1>
+        <ul class="items__list">
+          <li class="item">
+            <div class="item__wrapper--table">
+              <h2 class="item__caption" id="item-1">Video Suite</h2>
+              <p class="item__details">
+                <span class="item__duration">Lifetime</span>
+                /
+                <span class="item__quantity">1 PC</span>
+              </p>
+              <table class="item__table">
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Video Editor Plus
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      1490 руб.
+                    </span>
+                  </td>
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Video Converter Premium
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      1290 руб.
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Screen Recorder
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      990 руб.
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="item__wrapper--price">
+              <div class="price">
+                <span class="price__old-price" id="old-price-item-1">
+                  3 770 руб.
+                </span>
+                <span class="price__current-price" id="price-item-1">
+                  1 990<span class="price__currency">руб.</span>
+                </span>
+              </div>
+              <button type="button" class="button item__button" id="buy-item-1">
+                <p>
+                  Buy Now
+                </p>
+              </button>
+            </div>
+          </li>
+          <li class="item item--best-value">
+            <div class="item__wrapper--table">
+              <h2 class="item__caption" id="item-2">Video Suite + Photo Editor</h2>
+              <p class="item__details">
+                <span class="item__duration">Lifetime</span>
+                /
+                <span class="item__quantity">1 PC</span>
+              </p>
+              <table class="item__table">
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Video Editor Plus
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      1490 руб.
+                    </span>
+                  </td>
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Video Converter Premium
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      1290 руб.
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="item__cell-caption">
+                    <span>
+                      Screen Recorder
+                    </span>
+                  </td>
+                  <td class="item__cost">
+                    <span class="item__cost-value">
+                      990 руб.
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="item__cell-caption item__cell-caption--special">
+                    <span>
+                      Photo Editor
+                    </span>
+                  </td>
+                  <td class="item__cost item__cost--special">
+                    <span class="item__cost-value">
+                      1290 руб.
+                    </span>
+                  </td>
+                </tr>
+              </table>
+              <ul class="item__advantages">
+                <li>
+                  Edit, enhance and retouch images
+                </li>
+                <li>
+                  Restore old photos
+                </li>
+              </ul>
+            </div>
+            <div class="item__wrapper--price">
+              <div class="price price--offer">
+                <span class="price__old-price" id="old-price-item-2">
+                  5 060 руб.
+                </span>
+                <span class="price__current-price" id="price-item-2">
+                  2 490<span class="price__currency">руб.</span>
+                </span>
+              </div>
+              <div class="offer">
+                <p>
+                  Offer valid until September 30, 2018
+                </p>
+              </div>
+              <button type="button" class="button button--offer" id="buy-item-2">
+                <p>
+                  Buy Now
+                </p>
+              </button>
+            </div>
+          </li>
+        </ul>
+        <ul class="payment-system">
+          <li class="payment-system__mastercard">
+            Mastercard
+          </li>
+          <li class="payment-system__visa">
+            Visa
+          </li>
+          <li class="payment-system__paypal">
+            PayPal
+          </li>
+          <li class="payment-system__discover">
+            Discover
+          </li>
+          <li class="payment-system__am-express">
+            American Express
+          </li>
+        </ul>
+      </section>
+      <section class="advantages">
+        <h2 class="advantages__title visually-hidden">
+          Our advantages
+        </h2>
+        <ul class="advantages__list">
+          <li>
+            <div class="advantages__caption">
+              <svg class="advantages__svg advantages__svg--money-back" width="32" height="32" role="img">
+                <use xlink:href="#sign_money-back"></use>
+              </svg>
+              <h3>
+                30 Day Money Back Guarantee
+              </h3>
+            </div>
+            <p class="advantages__text">
+              If you experience technical or other problems that cannot be solved, you can get a complete refund of your
+              purchase price within 30 days. Check our Refund Policy to find out if you are eligible for a full refund.
+            </p>
+          </li>
+          <li>
+            <div class="advantages__caption">
+              <svg class="advantages__svg advantages__svg--secure" width="27" height="32" role="img">
+                <use xlink:href="#sign_secure"></use>
+              </svg>
+              <h3>
+                Totally Secure Payments
+              </h3>
+            </div>
+            <p class="advantages__text">
+              Our payments are processed via the 2Checkout payment gateway. 2Checkout provides the highest standards of
+              online
+              security. It guarantees the safety of your payments and personal information.
+            </p>
+          </li>
+          <li>
+            <div class="advantages__caption">
+              <svg class="advantages__svg advantages__svg--key" width="32" height="32" role="img">
+                <use xlink:href="#sign_key"></use>
+              </svg>
+              <h3>
+                What Do I Get?
+              </h3>
+            </div>
+            <p class="advantages__text">
+              15 minutes after purchase, you will receive an email with a download link and activation key to the
+              account
+              used to make the purchase. Use these to download and activate the program.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="main__wrapper main__wrapper--white">
+      <section class="support">
+        <h2 class="support__title visually-hidden">
+          Our support
+        </h2>
+        <ul class="support__list">
+          <li>
+            <div class="support__caption">
+              <svg class="support__svg support__svg--support" width="31" height="33" role="img">
+                <use xlink:href="#sign_support"></use>
+              </svg>
+              <h3>
+                24/7 Payment Support
+              </h3>
+            </div>
+            <p class="support__text">
+              Contact the 2Checkout 24/7 English language support service by phone at +31 88 000 0008(international)
+              with
+              any payment-related questions.
+            </p>
+          </li>
+          <li>
+            <div class="support__caption">
+              <svg class="support__svg advantages__svg--soft-support" width="32" height="32" role="img">
+                <use xlink:href="#sign_soft-support"></use>
+              </svg>
+              <h3>
+                Movavi Software Support
+              </h3>
+            </div>
+            <p class="support__text">
+              If you have any problems activating or using the programs, visit our Help Center for answers, live
+              support,
+              software manuals, and quick user guides.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__wrapper">
+      <svg class="footer__svg" width="96" height="21" role="img">
+        <use xlink:href="#sign_logo"></use>
+      </svg>
+      <form class="sign-up">
+        <fieldset class="sign-up__fieldset">
+          <div class="sign-up__container">
+            <span class="sign-up__caption">
+              Sign up for news and special offers
+            </span>
+            <div class="sign-up__wrapper">
+              <input type="email" class="sign-up__input" placeholder="user@email.com">
+              <button type="submit" class="button button--offer sign-up__button">
+                <p>
+                  Sing Up
+                </p>
+              </button>
+            </div>
+            <div class="sign-up__checkbox-wrapper">
+              <input type="checkbox" name="agree" id="sign-up-checkbox" class="sign-up__checkbox visually-hidden">
+              <label for="sign-up-checkbox" class="sign-up__checkbox-label"></label>
+              <p class="sign-up__text">
+                By signing up, you consent to receive our marketing emails and agree to Movavi using your personal data
+                in accordance with our <a href="#">Privacy Policy</a>. You also confirm that you<br>
+                meet the <a href="#">minimum age requirements</a>.
+              </p>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </footer>
+
+  <template id="template-item">
+    <li id="item-0">
+      <img class="checkout__image" src="img/item-1.png" width="134" height="75" alt="Item">
+      <div class="checkout__wrapper">
+        <p class="checkout__text">
+          Alchemy of crystals sticker pack
+        </p>
+        <div class="checkout__small-wrapper">
+          <span class="checkout__item-price">
+            99.0 руб.
+          </span>
+          <button type="button" class="checkout__delete-item" id="delete-item-0">
+            <p>
+              Delete
+            </p>
+          </button>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <script src="js/render.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/timer.js"></script>
+</body>
+
+</html>

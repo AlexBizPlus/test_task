@@ -1,0 +1,42 @@
+.items {
+  @include flex-column(flex-start, center);
+  width: 100%;
+  max-width: $tablet-wrapper;
+}
+
+.items__title {
+  @include flex-column(flex-start, center);
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: $black-color;
+}
+
+.items__list {
+  @include list-reset();
+  @include flex-column(flex-start, center);
+  width: 100%;
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .items {
+    max-width: $tablet-large-wrapper;
+  }
+
+  .items__list {
+    @include flex-row(center, stretch);
+
+    li:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+
+  .items__title {
+    font-size: 32px;
+  }
+}

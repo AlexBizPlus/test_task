@@ -1,0 +1,76 @@
+.price {
+  @include flex-column(flex-end, center);
+  margin-top: 58px;
+  margin-bottom: 13px;
+
+  &--offer {
+    margin-top: 18px;
+  }
+}
+
+.price__old-price {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: line-through;
+}
+
+.price__current-price {
+  font-size: 44px;
+}
+
+.price__currency {
+  margin-left: 8px;
+  margin-right: 9px;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .price {
+    @include flex-column(flex-start, flex-start);
+    margin-top: 23px;
+
+    &--offer {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .price {
+    @include flex-column(flex-start, center);
+    margin-top: 0;
+    margin-bottom: 47px;
+
+    &--offer {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .price {
+    margin-top: 0;
+    margin-bottom: 35px;
+
+    &--offer {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  .price__old-price {
+    margin-bottom: 10px;
+  }
+}

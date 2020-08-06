@@ -1,0 +1,45 @@
+$mobile-width: 320px;
+$mobile-button-width: 240px;
+$mobile-large-button: 305px;
+$mobile-small-button: 106px;
+$cell-width: 100px;
+$min-celll-width: 140px;
+$max-celll-width: 180px;
+$mobile-wrapper: 288px;
+$mobile-button: $mobile-wrapper - $mobile-small-button;
+
+// $tablet-width: 540px;
+$tablet-width: 720px;
+$tablet-wrapper: 688px;
+$list-wrapper: 450px;
+$table-wrapper: 330px;
+$tablet-line: $tablet-wrapper / 2;
+
+$tablet-large-width: 960px;
+$tablet-large-wrapper: 928px;
+$column-width: 288px;
+$column-wide-width: 447px;
+
+$desktop-width: 1140px;
+$desktop-wrapper: 1108px;
+$desktop-column-width: 348px;
+$desktop-item-wrapper: 312px;
+$desktop-column-advantages: 331px;
+$desktop-column-wide: 538px;
+
+$mobile-checkout: 304px;
+$mobile-checkout-wrapper: 275px;
+$tablet-checkout: 533px;
+$tablet-checkout-wrapper: 465px;
+$checkout-text: 245px;
+
+$header-color: #212121;
+$main-color: #e3f0ff;
+$black-color: #000000;
+$white-color:#ffffff;
+$gray-color:#757575;
+$best-value-color:#ef5350;
+$offer-button-color: #3581d5;
+$line-color: #bdbdbd;
+$input-color: #616161;
+$link-color:#1962b2;

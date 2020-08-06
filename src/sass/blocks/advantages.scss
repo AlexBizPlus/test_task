@@ -1,0 +1,90 @@
+.advantages {
+  max-width: $tablet-wrapper;
+}
+
+.advantages__list {
+  @include list-reset();
+  @include flex-column(flex-start, center);
+  margin-top: 25px;
+  margin-bottom: 53px;
+
+  li {
+    margin-top: 35px;
+  }
+}
+
+.advantages__caption {
+  @include flex-row(flex-start, flex-start);
+  min-height: 43px;
+  margin-top: 0;
+  margin-bottom: 2px;
+
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+}
+
+.advantages__svg {
+  margin-right: 16px;
+}
+
+.advantages__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.advantages--support {
+  background-color: $white-color;
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .advantages {
+    max-width: $tablet-large-wrapper;
+  }
+
+  .advantages__list {
+    @include flex-row(flex-start, flex-start);
+    margin-top: 27px;
+    margin-bottom: 60px;
+
+    li {
+      width: $column-width;
+    }
+
+    li:not(:nth-child(3n)) {
+      margin-right: 33px;
+    }
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .advantages {
+    max-width: $desktop-wrapper;
+  }
+
+  .advantages__caption {
+    min-height: 40px;
+  }
+
+  .advantages__list {
+    li {
+      width: $desktop-column-advantages;
+    }
+
+    li:not(:nth-child(3n)) {
+      margin-right: 54px;
+    }
+  }
+}

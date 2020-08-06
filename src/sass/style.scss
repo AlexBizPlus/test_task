@@ -1,0 +1,44 @@
+@import "../css/normalize";
+
+@import "blocks/fonts.scss";
+@import "blocks/mixins.scss";
+@import "blocks/variables.scss";
+
+body {
+  @include base-font();
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@import "blocks/visually-hidden.scss";
+@import "blocks/main.scss";
+@import "blocks/header.scss";
+@import "blocks/items.scss";
+@import "blocks/item.scss";
+@import "blocks/price.scss";
+@import "blocks/button.scss";
+@import "blocks/offer.scss";
+@import "blocks/payment-system.scss";
+@import "blocks/advantages.scss";
+@import "blocks/support.scss";
+@import "blocks/footer.scss";
+@import "blocks/sign-up.scss";
+@import "blocks/checkout.scss";
+@import "blocks/hidden.scss";
+@import "blocks/timer.scss";

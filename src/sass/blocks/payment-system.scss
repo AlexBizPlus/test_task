@@ -1,0 +1,132 @@
+.payment-system {
+  @include list-reset();
+  @include flex-row(space-between, center);
+  width: 100%;
+  max-width: $list-wrapper;
+  position: relative;
+  margin-top: 15px;
+  padding-bottom: 51px;
+  font-size: 0;
+
+  &::before {
+    @include pseudo();
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $line-color;
+  }
+
+  li {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+}
+
+.payment-system__mastercard {
+  width: 28px;
+  height: 22px;
+  background-image: url('../img/mastercart.png');
+  background-size: 28px 22px;
+}
+
+.payment-system__visa {
+  width: 35px;
+  height: 12px;
+  background-image: url('../img/visa.png');
+  background-size: 35px 12px;
+}
+
+.payment-system__paypal {
+  width: 40px;
+  height: 10px;
+  background-image: url('../img/paypal.png');
+  background-size: 40px 10px;
+}
+
+.payment-system__discover {
+  width: 43px;
+  height: 23px;
+  background-image: url('../img/discover.png');
+  background-size: 43px 23px;
+}
+
+.payment-system__am-express {
+  width: 45px;
+  height: 29px;
+  background-image: url('../img/am-express.png');
+  background-size: 45px 29px;
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .payment-system {
+    margin-top: 38px;
+    padding-bottom: 61px;
+
+    &::before {
+      left: calc(50% - #{$tablet-line});
+      width: $tablet-wrapper;
+    }
+  }
+
+  .payment-system__mastercard {
+    width: 37px;
+    height: 29px;
+    background-size: 37px 29px;
+  }
+
+  .payment-system__visa {
+    width: 47px;
+    height: 15px;
+    background-size: 47px 15px;
+  }
+
+  .payment-system__paypal {
+    width: 53px;
+    height: 13px;
+    background-size: 53px 13px;
+  }
+
+  .payment-system__discover {
+    width: 57px;
+    height: 30px;
+    background-size: 57px 30px;
+  }
+
+  .payment-system__am-express {
+    width: 60px;
+    height: 38px;
+    background-size: 60px 38px;
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .payment-system {
+    margin-top: 25px;
+    padding-bottom: 62px;
+
+    &::before {
+      left: calc(50% - #{$tablet-large-wrapper} / 2);
+      width: $tablet-large-wrapper;
+    }
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .payment-system {
+
+    &::before {
+      left: calc(50% - #{$desktop-width} / 2);
+      width: $desktop-width;
+    }
+  }
+}

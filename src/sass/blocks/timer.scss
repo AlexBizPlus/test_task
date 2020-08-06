@@ -1,0 +1,31 @@
+.timer {
+  @include flex-row(center, center);
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  top: 10px;
+  left: calc(50% - 60px / 2);
+  overflow: hidden;
+  position: absolute;
+  background-color: $best-value-color;
+  color: $white-color;
+  font-size: 0;
+  z-index: 4;
+}
+
+.timer__score {
+  font-size: 16px;
+}
+
+
+.timer__score--sec {
+  margin-left: 10px;
+  position: relative;
+
+  &::before {
+    content: ":";
+    position: absolute;
+
+    left: -10px;
+  }
+}

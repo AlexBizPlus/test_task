@@ -1,0 +1,211 @@
+.checkout {
+  position: fixed;
+  align-self: flex-end;
+  top: 66px;
+  right: 0;
+  width: $mobile-checkout;
+  min-height: 543px;
+  background-color: $white-color;
+  z-index: 3;
+}
+
+.checkout__container {
+  @include flex-column(flex-start, center);
+  width: 100%;
+  padding-left: calc((#{$mobile-checkout} - #{$mobile-checkout-wrapper}) / 2);
+  padding-right: calc((#{$mobile-checkout} - #{$mobile-checkout-wrapper}) / 2);
+}
+
+.checkout__title {
+  align-self: start;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  padding-left: 35px;
+  opacity: 0.78;
+  font-size: 20px;
+}
+
+.checkout__continue {
+  position: relative;
+  padding-right: 5px;
+  margin-top: 30px;
+  order: -1;
+  font-size: 16px;
+  color: $link-color;
+}
+
+.checkout__svg {
+  position: absolute;
+  bottom: 4px;
+  left: -29px;
+  width: 6px;
+  height: 11px;
+}
+
+.checkout__shopping-list {
+  @include list-reset();
+  position: relative;
+  padding-bottom: 87px;
+
+  &::before {
+    @include pseudo();
+    bottom: 0;
+    left: calc(50% - #{$mobile-checkout-wrapper} / 2);
+    width: $mobile-checkout-wrapper;
+    height: 1px;
+    background-color: $line-color;
+  }
+
+  li {
+    @include flex-row(flex-start, flex-start);
+    margin-left: 22px;
+  }
+}
+
+.checkout__image {
+  width: 134px;
+  height: 75px;
+  margin-top: 3px;
+}
+
+.checkout__wrapper {
+  @include flex-column(flex-start, flex-start);
+  width: 80px;
+  margin-left: 12px;
+}
+
+.checkout__text {
+  width: 100%;
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 19px;
+  text-transform: uppercase;
+}
+
+.checkout__item-price {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.checkout__delete-item,
+.checkout__delete-items {
+  width: 100%;
+  margin-top: 16px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  opacity: 0.5;
+  font-size: 12px;
+  line-height: 1.2;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+.checkout__delete-items p {
+  text-align: right;
+}
+
+.checkout__total-wrapper {
+  @include flex-row(space-between, flex-start);
+  width: 100%;
+  margin-top: 29px;
+  opacity: 0.78;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.checkout__link {
+  @include flex-row(center, center);
+  width: $mobile-checkout-wrapper;
+  min-height: 55px;
+  margin-top: 34px;
+  background-color: $offer-button-color;
+  border: none;
+  color: $white-color;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .checkout {
+    width: $tablet-checkout;
+    min-height: 553px;
+  }
+
+  .checkout__container {
+    @include flex-column(flex-start, flex-start);
+    padding-left: calc((#{$tablet-checkout} - #{$tablet-checkout-wrapper}) / 2);
+    padding-right: calc((#{$tablet-checkout} - #{$tablet-checkout-wrapper}) / 2);
+  }
+
+  .checkout__title {
+    padding-left: 0;
+  }
+
+  .checkout__svg {
+    position: static;
+    margin-right: 20px;
+  }
+
+  .checkout__text {
+    width: $checkout-text;
+    transform: scale(0.97, 1) translateX(-5px);
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .checkout__shopping-list {
+    padding-bottom: 130px;
+
+    &::before {
+      left: calc(50% - #{$tablet-checkout-wrapper} / 2);
+      width: $tablet-checkout-wrapper;
+    }
+
+    li {
+      @include flex-row(flex-start, stretch);
+      width: $tablet-checkout-wrapper;
+      margin-left: 0;
+    }
+  }
+
+  .checkout__wrapper {
+    @include flex-row(flex-start, stretch);
+    width: auto;
+    margin-left: 15px;
+  }
+
+  .checkout__small-wrapper {
+    @include flex-column(space-between, flex-end);
+  }
+
+  .checkout__item-price {
+    transform: scale(0.97, 1) translateX(5px);
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  .checkout__delete-item,
+  .checkout__delete-items {
+    font-size: 16px;
+  }
+
+  .checkout__delete-item p {
+    text-align: right;
+  }
+
+  .checkout__link {
+    width: $tablet-checkout-wrapper;
+  }
+}

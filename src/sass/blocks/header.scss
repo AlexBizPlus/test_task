@@ -1,0 +1,82 @@
+.header {
+  @include flex-row(center, center);
+  min-width: $mobile-width;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $header-color;
+}
+
+.header__wrapper {
+  @include flex-row(space-between, center);
+  position: relative;
+  width: 100%;
+  min-height: 66px;
+}
+
+.header__menu {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  margin-right: 16px;
+}
+
+.header__options {
+  @include flex-row(center, center);
+  width: 20px;
+}
+
+.header__cart {
+  @include flex-row(flex-start, center);
+  min-width: 110px;
+  opacity: 0.78;
+  font-size: 14px;
+  line-height: 1.2;
+  color: $white-color;
+}
+
+.header__svg--cart {
+  margin-right: 8px;
+}
+
+.header__container {
+  @include flex-row(flex-start, center);
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .header__menu {
+    margin-right: 30px;
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .header__wrapper {
+    width: $tablet-large-wrapper;
+  }
+
+  .header__menu {
+    display: none;
+  }
+
+  .header__options {
+    display: none;
+  }
+
+  .header__cart {
+    @include flex-row(flex-end, center);
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .header__wrapper {
+    width: $desktop-wrapper;
+  }
+}

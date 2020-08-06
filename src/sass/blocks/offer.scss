@@ -1,0 +1,54 @@
+.offer {
+  position: relative;
+  width: $mobile-button-width;
+  font-size: 14px;
+  padding-left: 26px;
+  margin-bottom: 10px;
+
+  p {
+    margin-top: 0;
+  }
+
+  &::before {
+    @include pseudo();
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-image: url('../img/clock.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 16px 16px;
+  }
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .offer {
+    width: $mobile-wrapper;
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .offer {
+    width: $mobile-button-width;
+    margin-top: 10px;
+    margin-bottom: 18px;
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .offer {
+    width: calc(#{$desktop-item-wrapper} - 5px);
+    margin-left: 5px;
+    margin-bottom: 15px;
+  }
+}

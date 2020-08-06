@@ -1,0 +1,34 @@
+.main {
+  @include flex-column(flex-start, center);
+  min-width: $mobile-width;
+}
+
+.main__wrapper {
+  @include flex-column(flex-start, center);
+  position: relative;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: $main-color;
+
+  &--white {
+    background-color: $white-color;
+  }
+}
+
+.main--shadow {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    @include pseudo();
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+}

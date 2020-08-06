@@ -1,0 +1,54 @@
+.footer {
+  @include flex-column(flex-start, center);
+  min-width: $mobile-width;
+  background-color: $header-color;
+}
+
+.footer__wrapper {
+  @include flex-column(flex-start, center);
+  width: 100%;
+  max-width: $tablet-wrapper;
+  padding-top: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.footer__svg {
+  align-self: start;
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .footer__wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .footer__wrapper {
+    @include flex-row(space-between, flex-start);
+    max-width: $tablet-large-wrapper;
+    padding-top: 42px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .footer__svg {
+    margin-top: 5px;
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .footer__wrapper {
+    max-width: $desktop-wrapper;
+  }
+}

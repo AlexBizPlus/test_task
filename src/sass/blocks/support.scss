@@ -1,0 +1,90 @@
+.support {
+  max-width: $tablet-wrapper;
+}
+
+.support__list {
+  @include list-reset();
+  @include flex-column(flex-start, center);
+  margin-top: 30px;
+  margin-bottom: 58px;
+
+  li {
+    margin-top: 30px;
+  }
+}
+
+.support__caption {
+  @include flex-row(flex-start, flex-start);
+  min-height: 35px;
+  margin-top: 0;
+  margin-bottom: 2px;
+
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+}
+
+.support__svg {
+  margin-right: 16px;
+}
+
+.support__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.support--support {
+  background-color: $white-color;
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .support {
+    max-width: $tablet-large-wrapper;
+  }
+
+  .support__list {
+    @include flex-row(flex-start, flex-start);
+    margin-top: 32px;
+
+    li {
+      width: $column-wide-width;
+    }
+
+    li:not(:nth-child(2n)) {
+      margin-right: 33px;
+    }
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .support {
+    max-width: $desktop-wrapper;
+  }
+
+  .support__list {
+
+    li {
+      width: $desktop-column-wide;
+    }
+
+    li:not(:nth-child(2n)) {
+      margin-right: 35px;
+    }
+  }
+
+  .support__caption {
+    min-height: 32px;
+  }
+}

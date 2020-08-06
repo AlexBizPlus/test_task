@@ -1,0 +1,53 @@
+.button {
+  width: $mobile-button-width;
+  border: 2px solid #1962b2;
+  border-radius: 3px;
+  background-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  p {
+    margin-top: 11px;
+    margin-bottom: 11px;
+  }
+}
+
+.button--offer {
+  margin-bottom: 25px;
+  background-color: $offer-button-color;
+  border: none;
+  color: $white-color;
+}
+
+//------------------------------------------- TABLET -------------------------
+
+@media (min-width: $tablet-width) {
+
+  .button {
+    margin-top: 32px;
+  }
+
+  .button--offer {
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+//------------------------------------------- TABLET-2 -------------------------
+
+@media (min-width: $tablet-large-width) {
+
+  .button {
+    margin-bottom: 22px;
+    margin-left: 0;
+  }
+}
+
+//------------------------------------------- DESKTOP -------------------------
+
+@media (min-width: $desktop-width) {
+
+  .button {
+    width: $desktop-item-wrapper;
+  }
+}
