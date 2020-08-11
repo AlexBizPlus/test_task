@@ -38,7 +38,7 @@
   .offer {
     width: $mobile-button-width;
     margin-top: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 5px;
   }
 }
 
@@ -49,6 +49,6 @@
   .offer {
     width: calc(#{$desktop-item-wrapper} - 5px);
     margin-left: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 }

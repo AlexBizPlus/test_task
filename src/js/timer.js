@@ -1,82 +1,79 @@
-(function () {
-  const MICRO_DELAY = 50;
+import {
+  startPriceAction,
+  countPriceAction
+} from './render.js';
 
-  let itemsList = document.querySelectorAll('.item__caption');
+import {
+  closePriceAction
+} from './main.js';
 
-  const timer = document.getElementById('timer');
-  const timerMin = document.getElementById('min');
-  const timerSec = document.getElementById('sec');
-  let intervalCount;
-  let delay = 900000; //custom__time
+const MICRO_DELAY = 50;
 
-  const timeIsUp = function () {
-    alert('Акция закончилась');
-    timer.classList.add('hidden');
-    let storageArray = JSON.parse(sessionStorage.getItem('cart'));
+let intervalCount;
+let delay = 10000; //custom__time
 
-    for (item of itemsList) {
-      let oldPrice = document.getElementById(`old-price-${item.id}`).textContent
-      document.getElementById(`price-${item.id}`).textContent = oldPrice;
-      document.getElementById(`old-price-${item.id}`).style.display = 'none';
-      for (storageItem of storageArray) {
-        if (storageItem.id === item.id) {
-          storageItem.price = oldPrice;
-        }
-      }
+// const timeIsUp = () => {
+//   closePriceAction();
+// timer.classList.add('hidden');
+// let storageArray = JSON.parse(sessionStorage.getItem('cart'));
 
-      let shoppingList = document.getElementById('shopping-list');
-      let shoppingItems = shoppingList.getElementsByTagName('li');
-      for (shoppingItem of shoppingItems) {
-        if (shoppingItem.id === item.id) {
-          shoppingItem.price = oldPrice;
-        }
-      }
-    }
-    renderStorageElements();
-    sessionStorage.setItem('cart', JSON.stringify(storageArray));
+// for (const item of itemsList) {
+//   let oldPrice = document.getElementById(`old-price-${item.id}`).textContent
+//   document.getElementById(`price-${item.id}`).textContent = oldPrice;
+//   document.getElementById(`old-price-${item.id}`).style.display = 'none';
+
+//   if (storageArray) {
+//     for (let storageItem of storageArray) {
+//       if (storageItem.id === item.id) {
+//         storageItem.price = oldPrice;
+//       }
+//     }
+//   }
+
+//   let shoppingList = document.getElementById('shopping-list');
+//   let shoppingItems = shoppingList.getElementsByTagName('li');
+//   for (shoppingItem of shoppingItems) {
+//     if (shoppingItem.id === item.id) {
+//       shoppingItem.price = oldPrice;
+//     }
+//   }
+// }
+// renderStorageElements();
+// sessionStorage.setItem('cart', JSON.stringify(storageArray));
+// }
+
+export function onLoadTimer() {
+  if (!sessionStorage.time) {
+    startPriceAction();
   }
 
-  const onLoadTimer = function () {
+  let now = new Date().getTime();
 
-    if (timer.classList.contains('hidden')) {
-      timer.classList.remove('hidden');
+  if (sessionStorage.time && JSON.parse(sessionStorage.getItem('time')) < delay) {
+    delay = JSON.parse(sessionStorage.getItem('time'));
+  }
+
+  now += delay;
+
+  let min = Math.trunc(delay / 1000 / 60);
+  let sec = Math.trunc(Math.abs(min * 1000 * 60 - delay) / 1000);
+  countPriceAction(min > 9 ? min : `0${min}`, sec > 9 ? sec : `0${sec}`);
+
+  clearTimeout(intervalCount);
+  intervalCount = window.setInterval(countTimer, 1000);
+
+  function countTimer() {
+    let newNow = new Date().getTime() - MICRO_DELAY;
+    min = Math.trunc(Math.floor((now - newNow) / 1000 / 60));
+    sec = Math.abs(Math.round((now - newNow) / 1000) - min * 60);
+    countPriceAction(min > 9 ? min : `0${min}`, sec > 9 ? sec : `0${sec}`);
+
+    sessionStorage.setItem('time', JSON.stringify(now - newNow));
+
+    if (now <= newNow) {
+      countPriceAction(`00`, `00`);
+      clearTimeout(intervalCount);
+      closePriceAction();
     }
-
-    let now = new Date().getTime();
-
-    if (sessionStorage.time && JSON.parse(sessionStorage.getItem('time')) < delay) {
-      delay = JSON.parse(sessionStorage.getItem('time'));
-    }
-
-    now += delay;
-
-    let min = Math.trunc(delay / 1000 / 60);
-    let sec = Math.trunc(Math.abs(min * 1000 * 60 - delay) / 1000);
-    timerMin.textContent = min > 9 ? min : `0${min}`;
-    timerSec.textContent = sec > 9 ? sec : `0${sec}`;
-
-    clearTimeout(intervalCount);
-    intervalCount = window.setInterval(countTimer, 1000);
-
-    function countTimer() {
-      let newNow = new Date().getTime() - MICRO_DELAY;
-      min = Math.trunc(Math.floor((now - newNow) / 1000 / 60));
-      sec = Math.abs(Math.round((now - newNow) / 1000) - min * 60);
-      timerMin.textContent = min > 9 ? min : `0${min}`;
-      timerSec.textContent = sec > 9 ? sec : `0${sec}`;
-
-      sessionStorage.setItem('time', JSON.stringify(now - newNow));
-
-      if (now <= newNow) {
-        timerMin.textContent = `00`;
-        timerSec.textContent = `00`;
-        clearTimeout(intervalCount);
-
-        timeIsUp();
-      }
-    }
-  };
-
-  window.addEventListener('DOMContentLoaded', onLoadTimer);
-
-})();
+  }
+};
